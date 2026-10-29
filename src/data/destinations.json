@@ -1,0 +1,302 @@
+[
+  {
+    "name": "Maldives Island Escape",
+    "country": "Maldives",
+    "category": "Beach",
+    "price": "$2,400",
+    "duration": "7 Days / 6 Nights",
+    "departureDate": "2026-11-14",
+    "imageUrl": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80&auto=format&fit=crop",
+    "description": "Overwater villas, crystal-clear lagoons and world-class snorkeling in the heart of the Indian Ocean."
+  },
+  {
+    "name": "Bali Tropical Getaway",
+    "country": "Indonesia",
+    "category": "Beach",
+    "price": "$1,150",
+    "duration": "10 Days / 9 Nights",
+    "departureDate": "2026-11-28",
+    "imageUrl": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80&auto=format&fit=crop",
+    "description": "Ancient temples, emerald rice terraces and golden beaches on the Island of the Gods."
+  },
+  {
+    "name": "Santorini Sunset Cruise",
+    "country": "Greece",
+    "category": "Beach",
+    "price": "$1,800",
+    "duration": "5 Days / 4 Nights",
+    "departureDate": "2026-12-05",
+    "imageUrl": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80&auto=format&fit=crop",
+    "description": "Whitewashed cliffside villages, volcanic beaches and the most famous sunset in the Aegean."
+  },
+  {
+    "name": "Bora Bora Lagoon Retreat",
+    "country": "French Polynesia",
+    "category": "Beach",
+    "price": "$3,600",
+    "duration": "8 Days / 7 Nights",
+    "departureDate": "2027-01-16",
+    "imageUrl": "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80&auto=format&fit=crop",
+    "description": "Pristine lagoons surrounded by Mount Otemanu, perfect for honeymooners and luxury travelers."
+  },
+  {
+    "name": "Phuket Beach Holiday",
+    "country": "Thailand",
+    "category": "Beach",
+    "price": "$980",
+    "duration": "6 Days / 5 Nights",
+    "departureDate": "2026-12-12",
+    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80&auto=format&fit=crop",
+    "description": "Tropical paradise with island-hopping tours to Phi Phi, vibrant nightlife and Thai cuisine."
+  },
+  {
+    "name": "Miami Beach City Break",
+    "country": "United States",
+    "category": "Beach",
+    "price": "$1,300",
+    "duration": "4 Days / 3 Nights",
+    "departureDate": "2026-11-20",
+    "imageUrl": "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80&auto=format&fit=crop",
+    "description": "Sun-soaked beaches, art deco architecture and legendary Ocean Drive nightlife."
+  },
+  {
+    "name": "Waikiki Surf & Sun",
+    "country": "United States",
+    "category": "Beach",
+    "price": "$2,100",
+    "duration": "9 Days / 8 Nights",
+    "departureDate": "2027-01-08",
+    "imageUrl": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80&auto=format&fit=crop",
+    "description": "Learn to surf where the sport was born, hike Diamond Head and catch Hawaiian sunsets."
+  },
+  {
+    "name": "Boracay White Beach Escape",
+    "country": "Philippines",
+    "category": "Beach",
+    "price": "$870",
+    "duration": "5 Days / 4 Nights",
+    "departureDate": "2026-12-18",
+    "imageUrl": "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=800&q=80&auto=format&fit=crop",
+    "description": "Powder-soft white sand, turquoise waters and unforgettable island nightlife."
+  },
+  {
+    "name": "Cancun Riviera Maya",
+    "country": "Mexico",
+    "category": "Beach",
+    "price": "$1,450",
+    "duration": "7 Days / 6 Nights",
+    "departureDate": "2027-02-06",
+    "imageUrl": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80&auto=format&fit=crop",
+    "description": "All-inclusive luxury on the Caribbean coast with day trips to Mayan cenotes and ruins."
+  },
+  {
+    "name": "Tulum Beach & Ruins",
+    "country": "Mexico",
+    "category": "Beach",
+    "price": "$1,250",
+    "duration": "6 Days / 5 Nights",
+    "departureDate": "2027-03-14",
+    "imageUrl": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80&auto=format&fit=crop",
+    "description": "Bohemian beach town where Mayan ruins overlook the turquoise Caribbean Sea."
+  },
+  {
+    "name": "Machu Picchu Trek",
+    "country": "Peru",
+    "category": "Historical",
+    "price": "$1,900",
+    "duration": "8 Days / 7 Nights",
+    "departureDate": "2026-11-22",
+    "imageUrl": "https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&q=80&auto=format&fit=crop",
+    "description": "Hike the legendary Inca Trail to the breathtaking 15th-century citadel in the clouds."
+  },
+  {
+    "name": "Great Wall Discovery",
+    "country": "China",
+    "category": "Historical",
+    "price": "$1,600",
+    "duration": "10 Days / 9 Nights",
+    "departureDate": "2027-04-10",
+    "imageUrl": "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&q=80&auto=format&fit=crop",
+    "description": "Walk the ancient Ming-era sections of the Great Wall and explore imperial Beijing."
+  },
+  {
+    "name": "Taj Mahal Heritage Tour",
+    "country": "India",
+    "category": "Historical",
+    "price": "$1,100",
+    "duration": "7 Days / 6 Nights",
+    "departureDate": "2026-12-04",
+    "imageUrl": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80&auto=format&fit=crop",
+    "description": "Witness the eternal monument of love along with the forts and palaces of Agra and Delhi."
+  },
+  {
+    "name": "Rome & Colosseum Tour",
+    "country": "Italy",
+    "category": "Historical",
+    "price": "$1,500",
+    "duration": "6 Days / 5 Nights",
+    "departureDate": "2027-05-02",
+    "imageUrl": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80&auto=format&fit=crop",
+    "description": "Gladiator history, Vatican treasures and authentic Roman cuisine la dolce vita style."
+  },
+  {
+    "name": "Petra Rose City Adventure",
+    "country": "Jordan",
+    "category": "Historical",
+    "price": "$1,350",
+    "duration": "5 Days / 4 Nights",
+    "departureDate": "2026-11-30",
+    "imageUrl": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80&auto=format&fit=crop",
+    "description": "Walk through the Siq to the Treasury carved in rose-red sandstone, then camp in Wadi Rum."
+  },
+  {
+    "name": "Venice Gondola Experience",
+    "country": "Italy",
+    "category": "Historical",
+    "price": "$1,650",
+    "duration": "4 Days / 3 Nights",
+    "departureDate": "2027-02-20",
+    "imageUrl": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&q=80&auto=format&fit=crop",
+    "description": "Canal-laced streets, St. Mark's Basilica and romantic gondola rides through history."
+  },
+  {
+    "name": "Istanbul Crossroads Tour",
+    "country": "Turkey",
+    "category": "Historical",
+    "price": "$1,200",
+    "duration": "6 Days / 5 Nights",
+    "departureDate": "2026-12-26",
+    "imageUrl": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80&auto=format&fit=crop",
+    "description": "Hagia Sophia, Grand Bazaar and Bosphorus cruises where Europe meets Asia."
+  },
+  {
+    "name": "Kyoto Zen & Culture",
+    "country": "Japan",
+    "category": "Cultural",
+    "price": "$2,200",
+    "duration": "9 Days / 8 Nights",
+    "departureDate": "2027-03-28",
+    "imageUrl": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80&auto=format&fit=crop",
+    "description": "Golden pavilions, geisha districts and thousands of vermilion torii gates in Japan's old capital."
+  },
+  {
+    "name": "Everest Base Camp Trek",
+    "country": "Nepal",
+    "category": "Adventure",
+    "price": "$2,800",
+    "duration": "14 Days / 13 Nights",
+    "departureDate": "2027-03-08",
+    "imageUrl": "https://images.unsplash.com/photo-1545579133-99bb5ab189bd?w=800&q=80&auto=format&fit=crop",
+    "description": "Trek through Sherpa villages to stand at the foot of the world's highest mountain."
+  },
+  {
+    "name": "Swiss Alps Zermatt Ski Trip",
+    "country": "Switzerland",
+    "category": "Adventure",
+    "price": "$3,100",
+    "duration": "7 Days / 6 Nights",
+    "departureDate": "2027-01-24",
+    "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80&auto=format&fit=crop",
+    "description": "Ski beneath the iconic Matterhorn with glacier views and cozy alpine chalets."
+  },
+  {
+    "name": "Banff National Park Explorer",
+    "country": "Canada",
+    "category": "Adventure",
+    "price": "$1,900",
+    "duration": "8 Days / 7 Nights",
+    "departureDate": "2026-06-15",
+    "imageUrl": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80&auto=format&fit=crop",
+    "description": "Turquoise glacial lakes, stargazing and wildlife safaris in the Rocky Mountains."
+  },
+  {
+    "name": "Serengeti Great Migration Safari",
+    "country": "Tanzania",
+    "category": "Adventure",
+    "price": "$3,800",
+    "duration": "9 Days / 8 Nights",
+    "departureDate": "2027-07-11",
+    "imageUrl": "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80&auto=format&fit=crop",
+    "description": "Witness millions of wildebeest on the move and the Big Five on sunrise game drives."
+  },
+  {
+    "name": "Grand Canyon Rim to Rim",
+    "country": "United States",
+    "category": "Adventure",
+    "price": "$1,400",
+    "duration": "5 Days / 4 Nights",
+    "departureDate": "2027-04-18",
+    "imageUrl": "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800&q=80&auto=format&fit=crop",
+    "description": "Epic desert hikes, helicopter views and red-rock sunsets across two billion years of geology."
+  },
+  {
+    "name": "Queenstown Adrenaline Rush",
+    "country": "New Zealand",
+    "category": "Adventure",
+    "price": "$2,500",
+    "duration": "10 Days / 9 Nights",
+    "departureDate": "2026-12-09",
+    "imageUrl": "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&q=80&auto=format&fit=crop",
+    "description": "Bungee jumping, Milford Sound cruises and Lord of the Rings landscapes in the Southern Alps."
+  },
+  {
+    "name": "Cappadocia Balloon Ride",
+    "country": "Turkey",
+    "category": "Adventure",
+    "price": "$1,100",
+    "duration": "5 Days / 4 Nights",
+    "departureDate": "2027-05-09",
+    "imageUrl": "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800&q=80&auto=format&fit=crop",
+    "description": "Float over fairy chimneys at sunrise and sleep in cave hotels carved from volcanic rock."
+  },
+  {
+    "name": "Dubai Desert Safari Experience",
+    "country": "United Arab Emirates",
+    "category": "Adventure",
+    "price": "$1,700",
+    "duration": "6 Days / 5 Nights",
+    "departureDate": "2026-11-27",
+    "imageUrl": "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&q=80&auto=format&fit=crop",
+    "description": "Dune bashing, Bedouin-style desert camps and stargazing minutes from futuristic skyscrapers."
+  },
+  {
+    "name": "Paris City of Lights",
+    "country": "France",
+    "category": "City",
+    "price": "$1,600",
+    "duration": "5 Days / 4 Nights",
+    "departureDate": "2026-12-13",
+    "imageUrl": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80&auto=format&fit=crop",
+    "description": "Eiffel Tower views, Louvre masterpieces and café culture along the Seine."
+  },
+  {
+    "name": "Tokyo Neon Discovery",
+    "country": "Japan",
+    "category": "City",
+    "price": "$2,400",
+    "duration": "8 Days / 7 Nights",
+    "departureDate": "2027-03-21",
+    "imageUrl": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&q=80&auto=format&fit=crop",
+    "description": "From Shibuya crossings to tranquil temple gardens — a dazzling blend of old and new."
+  },
+  {
+    "name": "New York Big Apple Week",
+    "country": "United States",
+    "category": "City",
+    "price": "$1,800",
+    "duration": "6 Days / 5 Nights",
+    "departureDate": "2026-12-01",
+    "imageUrl": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80&auto=format&fit=crop",
+    "description": "Broadway shows, Central Park strolls and skyline views from the top of Manhattan."
+  },
+  {
+    "name": "Barcelona Gaudí & Tapas",
+    "country": "Spain",
+    "category": "City",
+    "price": "$1,300",
+    "duration": "5 Days / 4 Nights",
+    "departureDate": "2027-04-24",
+    "imageUrl": "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800&q=80&auto=format&fit=crop",
+    "description": "Sagrada Familia wonders, Gothic Quarter wandering and late-night Spanish tapas."
+  }
+]

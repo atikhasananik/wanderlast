@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Wanderlast">
+  <rect width="64" height="64" rx="14" fill="#0891b2"/>
+  <path d="M32 9.5c-8.7 0-15.75 6.83-15.75 15.25C16.25 36.2 32 54.5 32 54.5s15.75-18.3 15.75-29.75C47.75 16.33 40.7 9.5 32 9.5Z" fill="#fff"/>
+  <circle cx="32" cy="24.5" r="5.75" fill="#0891b2"/>
+</svg>
