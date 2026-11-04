@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { User } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { signOut, useSession } from "@/lib/auth-client";
 
@@ -12,7 +11,6 @@ const NAV_LINKS = [
   { href: "/destinations", label: "Destinations" },
   { href: "/add-destination", label: "Add Destination" },
   { href: "/my-bookings", label: "My Bookings" },
-  { href: "/admin", label: "Admin" },
 ];
 
 export function Navbar() {
@@ -59,14 +57,6 @@ export function Navbar() {
 
         {/* Right: account actions */}
         <div className="flex  items-center gap-3">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-zinc-800 text-sm font-semibold  hover:bg-zinc-100 hover:text-cyan-600"
-          >
-            <User className="size-4" data-icon="inline-start" />
-            Profile
-          </Button>
           {!session?.user ? (
             <>
               <Link

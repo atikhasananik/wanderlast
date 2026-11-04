@@ -1,6 +1,7 @@
 import { auth } from "@/lib/auth";
 import { AllDestinationsGrid } from "./AllDestinationsGrid";
 import { headers } from "next/headers";
+import { apiUrl } from "@/lib/api";
 
 function parsePrice(price) {
   if (typeof price === "number") return price;
@@ -22,7 +23,7 @@ const AllDestination = async () => {
     headers: await headers(),
   });
 
-  const res = await fetch("http://localhost:8000", {
+  const res = await fetch(apiUrl(), {
     headers: {
       authorization: `bazar ${jwtToken?.token}`,
     },

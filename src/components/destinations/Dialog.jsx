@@ -13,10 +13,12 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { PlusSquare, Trash2 } from "lucide-react";
+import { PlusSquare } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { NativeSelect, NativeSelectOption } from "../ui/native-select";
 import { useRouter } from "next/navigation";
+import { apiUrl } from "@/lib/api";
+import { toast } from "@/components/ui/toast";
 
 const CATEGORIES = [
   "Beach",
@@ -29,10 +31,9 @@ const CATEGORIES = [
 
 export default function DialogPage({ destination }) {
   const [formData, setFormData] = useState(destination);
-  const [status, setStatus] = useState(null);
   const [open, setOpen] = useState(false);
 
-  const Router = useRouter();
+  const router = useRouter();
 
   const setField = (field) => (event) => {
     setFormData((prev) => ({ ...prev, [field]: event.target.value }));
@@ -41,40 +42,46 @@ export default function DialogPage({ destination }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!formData.name || !formData.country || !formData.price) {
-      setStatus({
+      toast.add({
+        title: "Destination not saved",
+        description: "Please fill in Name, Country and Price.",
         type: "error",
-        message: "Please fill in Name, Country and Price.",
       });
       return;
     }
 
     const { _id, ...dataToUpdate } = formData;
 
-    const res = await fetch(
-      `http://localhost:8000/update-destination/${destination._id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
+    try {
+      const res = await fetch(
+        apiUrl(`update-destination/${encodeURIComponent(destination._id)}`),
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataToUpdate),
         },
-        body: JSON.stringify(dataToUpdate),
+      );
+
+      if (!res.ok) {
+        throw new Error(`Request failed with status ${res.status}`);
       }
-    );
 
-    if (!res.ok) {
-      setStatus({
-        type: "error",
-        message: "Failed to save the travel package.",
+      toast.add({
+        title: "Destination updated",
+        description: `"${formData.name}" has been saved.`,
+        type: "success",
       });
-      return;
+      setOpen(false);
+      router.refresh();
+    } catch (error) {
+      toast.add({
+        title: "Destination not saved",
+        description: error.message || "Failed to save the travel package.",
+        type: "error",
+      });
     }
-
-    setStatus({
-      type: "success",
-      message: `"${formData.name}" has been saved.`,
-    });
-    setOpen(false);
-    Router.refresh();
   };
 
   return (
@@ -210,16 +217,6 @@ export default function DialogPage({ destination }) {
                 className="min-h-32 rounded-lg border-zinc-200 bg-zinc-50 text-zinc-900 placeholder:text-zinc-400"
               />
             </div>
-
-            {/* Status */}
-            {status && (
-              <p
-                className={`pt-1 text-sm ${status.type === "error" ? "text-red-600" : "text-cyan-600"}`}
-                role="status"
-              >
-                {status.message}
-              </p>
-            )}
 
             {/* Actions */}
             <div className="flex items-center justify-end gap-4 pt-4">

@@ -14,22 +14,45 @@ import {
 
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { apiUrl } from "@/lib/api";
+import { toast } from "@/components/ui/toast";
+import { authClient } from "@/lib/auth-client";
 
 export default function DialogDeleteBtn({ id }) {
+  const router = useRouter();
 
-    const Router = useRouter()
+  const handleDelete = async () => {
+    const {data} = await authClient.token()
+   const token =data?.token
+    try {
+      const res = await fetch(
+        apiUrl(`delete-destination/${encodeURIComponent(id)}`),
+        {
+          method: "DELETE",
+          headers:{
+            authorization: `bearer ${token}`
+          }
+        },
+      );
 
-    const handleDelete = async() => {
-        const res = await fetch(`http://localhost:8000/delete-destination/${id}`, {
-            method: "DELETE",
-        });
+      if (!res.ok) {
+        throw new Error(`Request failed with status ${res.status}`);
+      }
 
-        if (!res.ok) {
-            console.error("Failed to delete destination");
-            return;
-        }
-        Router.push("/destinations")
-    };
+      toast.add({
+        title: "Destination deleted",
+        description: "The destination was removed successfully.",
+        type: "success",
+      });
+      router.push("/destinations");
+    } catch (error) {
+      toast.add({
+        title: "Destination not deleted",
+        description: error.message || "Failed to delete the destination.",
+        type: "error",
+      });
+    }
+  };
 
   return (
     <Dialog>

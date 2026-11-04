@@ -10,6 +10,9 @@ import {
   NativeSelect,
   NativeSelectOption,
 } from "@/components/ui/native-select";
+import { apiUrl } from "@/lib/api";
+import { toast } from "@/components/ui/toast";
+import { authClient } from "@/lib/auth-client";
 
 const CATEGORIES = [
   "Beach",
@@ -33,7 +36,6 @@ const INITIAL_DATA = {
 
 export function AddDestinationPage() {
   const [formData, setFormData] = useState(INITIAL_DATA);
-  const [status, setStatus] = useState(null);
 
   const setField = (field) => (event) => {
     setFormData((prev) => ({ ...prev, [field]: event.target.value }));
@@ -41,45 +43,47 @@ export function AddDestinationPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const {data} = await authClient.token()
+    const token = data?.token
     if (!formData.name || !formData.country || !formData.price) {
-      setStatus({
+      toast.add({
+        title: "Destination not added",
+        description: "Please fill in Name, Country and Price.",
         type: "error",
-        message: "Please fill in Name, Country and Price.",
       });
       return;
     }
-    console.log(formData);
-    // TODO: POST to /api/destinations once a backend exists.
-
-    const res = await fetch("http://localhost:8000/add-destination", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    // const data = await res.json();
-    // console.log(data);
-
-    if (!res.ok) {
-      setStatus({
-        type: "error",
-        message: "Failed to save the travel package.",
+    try {
+      const res = await fetch(apiUrl("add-destination"), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `bearer ${token}`
+        },
+        body: JSON.stringify(formData),
       });
-      return;
-    }
 
-    setStatus({
-      type: "success",
-      message: `"${formData.name}" has been saved.`,
-    });
-    setFormData(INITIAL_DATA);
+      if (!res.ok) {
+        throw new Error(`Request failed with status ${res.status}`);
+      }
+
+      toast.add({
+        title: "Destination added",
+        description: `"${formData.name}" has been saved.`,
+        type: "success",
+      });
+      setFormData(INITIAL_DATA);
+    } catch (error) {
+      toast.add({
+        title: "Destination not added",
+        description: error.message || "Failed to save the travel package.",
+        type: "error",
+      });
+    }
   };
 
   const handleReset = () => {
     setFormData(INITIAL_DATA);
-    setStatus(null);
   };
 
   const inputClass =
@@ -225,16 +229,6 @@ export function AddDestinationPage() {
                 className="min-h-32 rounded-lg border-zinc-200 bg-zinc-50 text-zinc-900 placeholder:text-zinc-400"
               />
             </div>
-
-            {/* Status */}
-            {status && (
-              <p
-                className={`pt-1 text-sm ${status.type === "error" ? "text-red-600" : "text-cyan-600"}`}
-                role="status"
-              >
-                {status.message}
-              </p>
-            )}
 
             {/* Actions */}
             <div className="flex items-center justify-end gap-4 pt-4">

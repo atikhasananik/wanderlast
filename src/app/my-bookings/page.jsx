@@ -4,6 +4,7 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { buttonVariants } from "@/components/ui/button";
 import { BookingCard } from "@/components/my-bookings/booking-card";
+import { apiUrl } from "@/lib/api";
 
 const description = "Manage and view your upcoming travel plans";
 
@@ -31,7 +32,7 @@ export const metadata = {
 async function getBookings(email, token) {
   try {
     const res = await fetch(
-      `http://localhost:8000/my-bookings/${encodeURIComponent(email)}`,
+      apiUrl(`my-bookings/${encodeURIComponent(email)}`),
       {
         cache: "no-store",
         headers: {

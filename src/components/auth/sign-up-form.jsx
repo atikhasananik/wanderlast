@@ -63,8 +63,6 @@ export function SignUpForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
 
-    // FormData isn't a plain object, so `console.log(data)` shows nothing useful.
-    // Object.fromEntries() turns every field into a readable key/value pair.
     const values = Object.fromEntries(data.entries());
 
     if (values.password !== values.confirmPassword) {

@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/input-group";
 import { Separator } from "@/components/ui/separator";
 import { signIn } from "@/lib/auth-client";
+import { toast } from "@/components/ui/toast";
 
 function GoogleIcon({ className }) {
   return (
@@ -61,17 +62,28 @@ export  function SignInForm() {
     const data = new FormData(form);
     const values = Object.fromEntries(data.entries());
 
-    console.log({ ...values, rememberMe });
+    try {
+      const { error } = await signIn.email({
+        email: values.email,
+        password: values.password,
+        rememberMe,
+        callbackURL: "/destinations",
+      });
 
-    // Hook this up to the auth API when the backend is available.
-    const { data:resData, error } = await signIn.email({
-    email: values.email, // required, The email address of the user.
-    password: values.password, // required, The password of the user. It should be at least 8 characters long and max 128 by default.
-    rememberMe: rememberMe, // If false, the user will be signed out when the browser is closed. (optional) (default: true)
-    callbackURL: '/destinations', // An optional URL to redirect to after the user signs in. (optional)
-});
-
-console.log(resData,error)
+      if (error) {
+        toast.add({
+          title: "Sign in failed",
+          description: error.message || "Please check your credentials.",
+          type: "error",
+        });
+      }
+    } catch (error) {
+      toast.add({
+        title: "Sign in failed",
+        description: error.message || "Please try again.",
+        type: "error",
+      });
+    }
   }
 
   return (

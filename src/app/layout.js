@@ -1,8 +1,8 @@
 import { Geist, Geist_Mono, Prata } from "next/font/google";
 import "./globals.css";
-import { SiteChrome } from "@/components/common/site-chrome";
 import { Navbar } from "@/components/common/navbar";
 import { Footer } from "@/components/common/footer";
+import { Toaster } from "@/components/ui/toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,13 +20,13 @@ const heroSerif = Prata({
   weight: "400",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 const siteDescription =
   "Explore breathtaking destinations and create unforgettable memories with our curated travel experiences.";
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
   title: {
     default: "Wanderlast | Discover Your Next Adventure",
     template: "%s | Wanderlast",
@@ -78,9 +78,11 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} ${heroSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar></Navbar>
-        {children}
-        <Footer />
+        <Toaster>
+          <Navbar />
+          {children}
+          <Footer />
+        </Toaster>
       </body>
     </html>
   );

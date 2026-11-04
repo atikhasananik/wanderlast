@@ -12,9 +12,9 @@ import {
 } from "@/components/ui/carousel";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import { apiUrl } from "@/lib/api";
 import { DestinationCard } from "../destinations/DestinationCard";
 
-const API_URL = "http://localhost:8000/";
 const FEATURED_COUNT = 5;
 const FALLBACK_IMAGE = "/images/destinations/airplane-coast.jpg";
 const FALLBACK_RATING = 4.5;
@@ -235,7 +235,7 @@ export function FeaturedDestinations() {
   useEffect(() => {
     const controller = new AbortController();
 
-    fetch(API_URL, { signal: controller.signal })
+    fetch(apiUrl(), { signal: controller.signal })
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Failed to load destinations: ${response.status}`);

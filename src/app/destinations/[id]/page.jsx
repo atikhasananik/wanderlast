@@ -17,6 +17,7 @@ import DialogPage from "@/components/destinations/Dialog";
 import DialogDeleteBtn from "@/components/destinations/DeleteBtn";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+import { apiUrl } from "@/lib/api";
 
 const DEFAULT_HIGHLIGHTS = [
   "Handpicked accommodation",
@@ -63,7 +64,7 @@ function toDateInputValue(value) {
 
 async function getDestination(id, token) {
   const res = await fetch(
-    `http://localhost:8000/add-destination/${encodeURIComponent(id)}`,
+    apiUrl(`add-destination/${encodeURIComponent(id)}`),
     {
       headers: {
         authorization: `bearer ${token}`,
