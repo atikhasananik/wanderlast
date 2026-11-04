@@ -28,11 +28,16 @@ export const metadata = {
   },
 };
 
-async function getBookings(email) {
+async function getBookings(email, token) {
   try {
     const res = await fetch(
       `http://localhost:8000/my-bookings/${encodeURIComponent(email)}`,
-      { cache: "no-store" },
+      {
+        cache: "no-store",
+        headers: {
+          authorization: `bearer ${token}`,
+        },
+      },
     );
 
     if (!res.ok) {
@@ -53,10 +58,13 @@ export default async function MyBookingsPage() {
     headers: await headers(),
   });
 
+  const data = await auth.api.getToken({ headers: await headers() });
+  const token = data?.token;
+
   const email = session?.user?.email;
   if (!email) redirect("/sign-in");
 
-  const { bookings, error } = await getBookings(email);
+  const { bookings, error } = await getBookings(email, token);
 
   return (
     <main className="min-h-dvh bg-white pt-32 pb-24">

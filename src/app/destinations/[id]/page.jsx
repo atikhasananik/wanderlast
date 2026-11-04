@@ -12,12 +12,11 @@ import {
   X,
 } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import InputBtn from "@/components/destinations/Input";
 import DialogPage from "@/components/destinations/Dialog";
 import DialogDeleteBtn from "@/components/destinations/DeleteBtn";
-
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 const DEFAULT_HIGHLIGHTS = [
   "Handpicked accommodation",
@@ -62,9 +61,14 @@ function toDateInputValue(value) {
   ].join("-");
 }
 
-async function getDestination(id) {
+async function getDestination(id, token) {
   const res = await fetch(
-    `http://localhost:8000/add-destination/${encodeURIComponent(id)}`
+    `http://localhost:8000/add-destination/${encodeURIComponent(id)}`,
+    {
+      headers: {
+        authorization: `bearer ${token}`,
+      },
+    },
   );
 
   if (!res.ok) return null;
@@ -75,13 +79,13 @@ async function getDestination(id) {
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
+
   const destination = await getDestination(id);
 
   if (!destination?.name) {
     return {
       title: "Destination Not Found",
-      description:
-        "The destination you are looking for could not be found.",
+      description: "The destination you are looking for could not be found.",
       robots: {
         index: false,
         follow: false,
@@ -137,7 +141,11 @@ export async function generateMetadata({ params }) {
 
 const SingleCardDetailsPage = async ({ params }) => {
   const { id } = await params;
-  const destination = await getDestination(id);
+
+  const data = await auth.api.getToken({ headers: await headers() });
+  const token = data?.token;
+
+  const destination = await getDestination(id, token);
 
   if (!destination?.name) {
     notFound();
@@ -178,8 +186,8 @@ const SingleCardDetailsPage = async ({ params }) => {
           </Link>
 
           <div className="flex items-center gap-2">
-           <DialogPage destination={destination}/>
-            <DialogDeleteBtn id = {destination._id}></DialogDeleteBtn>
+            <DialogPage destination={destination} />
+            <DialogDeleteBtn id={destination._id}></DialogDeleteBtn>
           </div>
         </div>
 
@@ -270,7 +278,10 @@ const SingleCardDetailsPage = async ({ params }) => {
               </p>
               <p className="text-xs text-zinc-500">per person</p>
 
-              <InputBtn destination={destination} departureDate={departureDate} />
+              <InputBtn
+                destination={destination}
+                departureDate={departureDate}
+              />
 
               <ul className="mt-5 space-y-3 border-t border-zinc-200 pt-4">
                 {INCLUDED.map((item) => (

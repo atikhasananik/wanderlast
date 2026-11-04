@@ -22,7 +22,7 @@ export function CancelBookingButton({ id }) {
 
     try {
       const res = await fetch(
-        `http://localhost:8000/delete-booking/${encodeURIComponent(id)}`,
+        `http://localhost:8000/my-booking-delete/${encodeURIComponent(id)}`,
         {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },

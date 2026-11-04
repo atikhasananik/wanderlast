@@ -22,7 +22,6 @@ const AllDestination = async () => {
     headers: await headers(),
   });
 
-  console.log(jwtToken?.token);
   const res = await fetch("http://localhost:8000", {
     headers: {
       authorization: `bazar ${jwtToken?.token}`,
